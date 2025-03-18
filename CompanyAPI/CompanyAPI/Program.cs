@@ -43,6 +43,7 @@ namespace CompanyAPI
             {
                 var db = scope.ServiceProvider.GetRequiredService<CompanyDbContext>();
                 db.Database.Migrate();
+                DbInitializer.Seed(db);
             }
 
             // Configure the HTTP request pipeline.
