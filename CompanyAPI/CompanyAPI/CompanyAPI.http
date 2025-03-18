@@ -1,0 +1,6 @@
+@CompanyAPI_HostAddress = http://localhost:5029
+
+GET {{CompanyAPI_HostAddress}}/company/
+Accept: application/json
+
+###
