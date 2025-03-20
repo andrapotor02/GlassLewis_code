@@ -1,0 +1,31 @@
+<div>
+    <form #isinForm="ngForm">
+      <div class="form-group" style="margin-top: 10px; margin-bottom: 10px;">
+        <label for="isin" class="label-style">Isin</label>
+        <input type="text" id="isin" name="isin" [(ngModel)]="isin" required style="margin-top: 10px;">
+      </div>
+      <div style="margin-top: 20px; margin-bottom: 10px;">
+        <button type="submit" class="btn btn-success" [disabled]="!isinForm.form.valid" (click)="getCompanyByIsin(isin)">Get Company by Isin</button>
+      </div>
+    </form>
+    <table style="width: 60%;" *ngIf="companyByIsin != null">
+      <thead>
+        <tr>
+          <th>Company Name</th>
+          <th>Exchange</th>
+          <th>Stock Ticker</th>
+          <th>Isin</th>
+          <th>Website</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: center;">{{ companyByIsin.companyName }}</td>
+          <td style="text-align: center;">{{ companyByIsin.exchange }}</td>
+          <td style="text-align: center;">{{ companyByIsin.stockTicker }}</td>
+          <td style="text-align: center;">{{ companyByIsin.isin }}</td>
+          <td style="text-align: center;">{{ companyByIsin.website }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

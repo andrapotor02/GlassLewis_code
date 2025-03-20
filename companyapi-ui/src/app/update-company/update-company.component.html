@@ -1,0 +1,51 @@
+<div>
+  <form #companyIdForm="ngForm">
+    <div class="form-group" style="margin-top: 10px; margin-bottom: 10px;">
+      <label for="companyId" class="label-style">Company Id</label>
+      <input type="number" id="companyId" name="companyId" [(ngModel)]="companyId" required style="margin-top: 10px;">
+    </div>
+    <div style="margin-top: 20px; margin-bottom: 10px;">
+      <button type="submit" class="btn btn-success" [disabled]="!companyIdForm.form.valid"
+        (click)="getCompanyById(companyId)">Get Company by Id</button>
+    </div>
+  </form>
+  <div class="container" *ngIf="companyDetails != null">
+    <div>
+      <h3>Update Company</h3>
+      <div style="width: 14%; margin-bottom: 20px;">
+        <form #companyForm="ngForm">
+          <input hidden type="text" class="form-control" id="companyId" name="companyId"
+            [(ngModel)]="companyDetails.companyId">
+          <div class="form-group" style="margin-bottom: 10px;">
+            <label for="companyName" class="label-style">Insert New Name</label>
+            <input type="text" class="form-control" id="companyName" name="companyName"
+              [(ngModel)]="companyDetails.companyName" style="margin-top: 10px;">
+          </div>
+          <div class="form-group" style="margin-bottom: 10px;">
+            <label for="exchange" class="label-style">Exchange</label>
+            <input type="text" class="form-control" id="exchange" name="exchange" [(ngModel)]="companyDetails.exchange"
+              style="margin-top: 10px;">
+          </div>
+          <div class="form-group" style="margin-bottom: 10px;">
+            <label for="stockTicker" class="label-style">Stock Ticker</label>
+            <input type="text" class="form-control" id="stockTicker" name="stockTicker"
+              [(ngModel)]="companyDetails.stockTicker" style="margin-top: 10px;">
+          </div>
+          <div class="form-group" style="margin-bottom: 10px;">
+            <label for="isin" class="label-style">Isin</label>
+            <input type="text" class="form-control" id="isin" name="isin" [(ngModel)]="companyDetails.isin"
+              style="margin-top: 10px;">
+          </div>
+          <div class="form-group" style="margin-bottom: 10px;">
+            <label for="website" class="label-style">Website</label>
+            <input type="text" class="form-control" id="website" name="website" [(ngModel)]="companyDetails.website"
+              style="margin-top: 10px;">
+          </div>
+          <div style="margin-top: 20px; margin-bottom: 10px;">
+            <button type="submit" class="btn btn-success" [disabled]="!companyForm.form.valid"
+              (click)="updateCompany(companyForm.form.value)">Update Company</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

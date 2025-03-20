@@ -1,0 +1,22 @@
+<div style="margin-top: 30px;" *ngIf="companies.length > 0">
+    <table style="width: 60%;">
+      <thead>
+        <tr>
+          <th>Company Name</th>
+          <th>Exchange</th>
+          <th>Stock Ticker</th>
+          <th>Isin</th>
+          <th>Website</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let company of companies">
+          <td style="text-align: center;">{{ company.companyName }}</td>
+          <td style="text-align: center;">{{ company.exchange }}</td>
+          <td style="text-align: center;">{{ company.stockTicker }}</td>
+          <td style="text-align: center;">{{ company.isin }}</td>
+          <td style="text-align: center;">{{ company.website }}</td>
+        </tr>
+      </tbody>
+    </table> 
+  </div>

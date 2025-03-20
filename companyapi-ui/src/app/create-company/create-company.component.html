@@ -1,0 +1,39 @@
+<div class="container">
+    <form #companyForm="ngForm">
+      <div class="form-group" style="margin-bottom: 10px;">
+        <label for="companyName" class="label-style">Company Name</label>
+        <input type="text" class="form-control" id="companyName" name="companyName" [ngModel]="companyDetails.companyName" required style="margin-top: 10px;">
+        <div *ngIf="companyForm.controls.companyName?.touched && companyForm.controls.companyName?.invalid" class="text-danger">
+          Name is required.
+        </div>
+      </div>
+      <div class="form-group" style="margin-bottom: 10px;">
+        <label for="exchange" class="label-style">Exchange</label>
+        <input type="text" class="form-control" id="exchange" name="exchange" [ngModel]="companyDetails.exchange" required style="margin-top: 10px;">
+        <div *ngIf="companyForm.controls.exchange?.touched && companyForm.controls.exchange?.invalid" class="text-danger">
+          Exchange is required.
+        </div>
+      </div>
+      <div class="form-group" style="margin-bottom: 10px;">
+        <label for="stockTicker" class="label-style">Stock Ticker</label>
+        <input type="text" class="form-control" id="stockTicker" name="stockTicker" [ngModel]="companyDetails.stockTicker" required style="margin-top: 10px;">
+        <div *ngIf="companyForm.controls.stockTicker?.touched && companyForm.controls.stockTicker?.invalid" class="text-danger">
+          Stock Ticker is required.
+        </div>
+      </div>
+      <div class="form-group" style="margin-bottom: 10px;">
+        <label for="isin" class="label-style">Isin</label>
+        <input type="text" class="form-control" id="isin" name="isin" [ngModel]="companyDetails.isin" required style="margin-top: 10px;">
+        <div *ngIf="companyForm.controls.isin?.touched && companyForm.controls.isin?.invalid" class="text-danger">
+          Isin is required.
+        </div>
+      </div>
+      <div class="form-group" style="margin-bottom: 10px;">
+        <label for="website" class="label-style">Website</label>
+        <input type="text" class="form-control" id="website" name="website" [ngModel]="companyDetails.website" style="margin-top: 10px;">
+      </div>
+      <div style="margin-top: 20px; margin-bottom: 10px;">
+        <button type="submit" class="btn btn-success" [disabled]="!companyForm.form.valid" (click)="createCompany(companyForm.form.value)">Create Company</button>
+      </div>
+    </form>
+  </div>
