@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CompanyService } from '../company.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-company',
@@ -16,11 +17,12 @@ export class CreateCompanyComponent {
       website: ''
     }
 
-  constructor(private companyService: CompanyService) {}
+  constructor(private companyService: CompanyService, private toastrService: ToastrService) {}
 
   public createCompany(companyForm: any) {
     this.companyService.createCompany(companyForm).subscribe(() => {
-      setTimeout(() => window.location.reload())
+      this.toastrService.success("Successfully created company.");
+      setTimeout(() => window.location.reload(), 3000);
     },
   error => alert(error.error.text));
   }

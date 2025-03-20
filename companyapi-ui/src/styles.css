@@ -4,6 +4,7 @@ table, th, td {
   }
 
   .label-style {
+    display: block;
     margin-right: 20px;
     font-weight: bold;
 }
